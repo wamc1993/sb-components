@@ -1,46 +1,48 @@
-# Getting Started with Create React App
+Esto proyecto fue creado de manera convencional con el comando
+npm create-react-app willapp --template= typescript
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Luego, se ejecutó en la raiz del proyecto el comando
+npm remove react-scripts
 
-## Available Scripts
+y luego, se borraron de forma manual la carpeta public y los archivos en src diferentes a index.tsx
 
-In the project directory, you can run:
+Ejecutamos en la raiz del proyecto el siguiente comando
+npx sb init
+fuente: https://storybook.js.org/docs/react/get-started/install
 
-### `npm start`
+Después de seguir los pasos anteriores, el proyecto ya ha dejado de ser un proyecto de React,
+y lo podríamos considerar como un proyecto de storybook
+De hecho, el npm start ya no funciona D: y en cambio tenemos 2 nuevos scripts en nuestro package.json
+npm run storybook
+npm run build-storybook
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+vamos a actualizar la sección de scripts en el package.json,
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+-   copiando el script de "storybook" y pegandolo en el "start"
+-   copiando el script de "build-stotybook" y pegandolo en el "build"
+-   borrando los scripts de test y reject
 
-### `npm test`
+Ahora, borramos el contenido de index.tsx,
+y por ahora, hagamos un export de alguno de los componentes de prueba de storybook
+export { Button } from "./stories/Button";
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Esto no es para que storybook funcione, es porque no queremos renderizar nada fuera de storybook, pero tampoco se puede dejar
+vacío al index
 
-### `npm run build`
+Ahora si, corramos el npm start
+El proyecto corre y nos muestra una página de inicio de storybook :)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-   En nuestro caso, el proyecto corrió al primer intento, pero al instructor le falló el proyecto porque había que configurar
+    el cargue de módulos css. El instructor tuvo que hacer una configuración adicional para configurar postcss y autoprefixer
+    (video 158 del curso) que por suerte nosotros no tuvimos que hacer
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+La página de inicio de storybook está en la siguiente ruta:
+http://localhost:6006/
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Para probar el sitio estático generado:
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+-   correr el comando de build storybook. Eto crear una carpeta llamada storybook-static
+-   instalar http-server, npm install --global http-server
+-   http-server servirá para visualizar el contenido del static generado, para ello:
+    -   Posicione la consola en la carpeta storybook-static
+    -   Corra el comando, http-server -o
