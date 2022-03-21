@@ -26,6 +26,10 @@ export interface Properties {
 	 * color del fondo
 	 */
 	background?: string;
+	/**
+	 * es cursiva?
+	 */
+	italic?: boolean;
 }
 
 const MyLabel = ({
@@ -34,6 +38,7 @@ const MyLabel = ({
 	allCaps = false,
 	color = "primary",
 	background = "#FFFFFF",
+	italic = false,
 }: Properties) => {
 	const text = allCaps
 		? label.charAt(0).toUpperCase() + label.slice(1)
@@ -41,6 +46,7 @@ const MyLabel = ({
 
 	const style = {
 		backgroundColor: background,
+		fontStyle: italic ? "italic" : "normal",
 	};
 
 	return (

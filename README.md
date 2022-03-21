@@ -46,3 +46,29 @@ Para probar el sitio estático generado:
 -   http-server servirá para visualizar el contenido del static generado, para ello:
     -   Posicione la consola en la carpeta storybook-static
     -   Corra el comando, http-server -o
+
+Para subir el repo a github
+
+-   Creamos el repo en github y subimos los cambios
+-   como queremos desplegar el sitio estático en github pages, vamos a subir una copia del build, pero por defeto,
+    nuestro archivo .gitignore no permite persistir la carpeta storybook-static
+-   Vamos a renombrar la carpeta "storybook-static" a "docs"
+-   Haremos un 2do commit para persistir la carpeta docs. La carpeta docs la usaremos para el deploy en github pages
+
+Chromatic
+https://www.chromatic.com/apps?accountId=6237c16fd28ecb003af14eb2
+Esta herramienta facilita la publicación de componentes de storybook
+Como parte del ejercicio, nos hemos logueado en chromatic usando nuestra cuenta de github
+y hemos seleccionado a este proyecto (el repo que hemos creado en github)
+
+Ahora, es necesario hacer una configuración del lado de proyecto
+siguiendo los siguientes pasos:
+
+-   ejecutar este comando, npm install --save-dev chromatic
+-   ejecutamos este comando, npx chromatic --project-token=693a221d7821
+    el token lo da chromatic
+-   Al ejecutar el comando anterior por primera vez, éste mismo comando se agrega al package.json
+
+Listo! ahora, cada vez que queramos publicar en chromatic,
+Corremos el comando npx chromatic --project-token=693a221d7821
+No es necesario guardar los cambios en github

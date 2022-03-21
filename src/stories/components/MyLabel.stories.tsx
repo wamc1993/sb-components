@@ -50,5 +50,6 @@ export const CustomBackground = Template.bind({});
 CustomBackground.args = {
 	label: "hola mundo",
 	size: "h1",
-	background: "#FEC44F",
+	italic: true,
+	background: "#6EC64F",
 };
