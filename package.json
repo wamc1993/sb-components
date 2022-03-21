@@ -1,54 +1,89 @@
 {
-  "name": "willapp",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.2",
-    "@testing-library/react": "^12.1.4",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.4.1",
-    "@types/node": "^16.11.26",
-    "@types/react": "^17.0.41",
-    "@types/react-dom": "^17.0.14",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "typescript": "^4.6.2",
-    "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "start-storybook -p 6006",
-    "build": "build-storybook",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token=693a221d7821"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@babel/core": "^7.17.8",
-    "@storybook/addon-actions": "^6.4.19",
-    "@storybook/addon-essentials": "^6.4.19",
-    "@storybook/addon-interactions": "^6.4.19",
-    "@storybook/addon-links": "^6.4.19",
-    "@storybook/react": "^6.4.19",
-    "@storybook/testing-library": "0.0.9",
-    "babel-loader": "^8.2.3",
-    "chromatic": "^6.5.3"
-  }
+	"name": "wamc1993-storybook-test",
+	"version": "0.1.0",
+	"private": false,
+	"license": "MIT",
+	"typings": "dist/index.d.ts",
+	"main": "dist/index.js",
+	"homepage": "https://github.com/wamc1993/sb-components",
+	"repository": {
+		"url": "https://github.com/wamc1993/sb-components",
+		"type": "git"
+	},
+	"peerDependencies": {
+		"react": ">=16",
+		"typescript": ">=4.0.0"
+	},
+	"release": {
+		"branches": [
+			"main"
+		]
+	},
+	"files": [
+		"dist",
+		"src"
+	],
+	"dependencies": {
+		"@testing-library/jest-dom": "^5.16.2",
+		"@testing-library/react": "^12.1.4",
+		"@testing-library/user-event": "^13.5.0",
+		"@types/jest": "^27.4.1",
+		"@types/node": "^16.11.26",
+		"@types/react": "^17.0.41",
+		"@types/react-dom": "^17.0.14",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"typescript": "^4.6.2",
+		"web-vitals": "^2.1.4"
+	},
+	"scripts": {
+		"start": "start-storybook -p 6006",
+		"build": "npm run clean && tsc && npm run copy-css && npm run copy-svg",
+		"storybook": "start-storybook -p 6006",
+		"build-storybook": "build-storybook",
+		"chromatic": "npx chromatic --project-token=693a221d7821",
+		"clean": "rimraf dist/",
+		"copy-css": "copyfiles -u 1 src/**/*.css dist/",
+		"copy-svg": "copyfiles -u 1 src/**/*.svg dist/"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"@babel/core": "^7.17.8",
+		"@storybook/addon-actions": "^6.4.19",
+		"@storybook/addon-essentials": "^6.4.19",
+		"@storybook/addon-interactions": "^6.4.19",
+		"@storybook/addon-links": "^6.4.19",
+		"@storybook/react": "^6.4.19",
+		"@storybook/testing-library": "0.0.9",
+		"babel-loader": "^8.2.3",
+		"chromatic": "^6.5.3",
+		"copyfiles": "^2.4.1",
+		"rimraf": "^3.0.2",
+		"semantic-release": "^19.0.2"
+	},
+	"plugins": [
+		"@semantic-release/commit-analyzer",
+		"@semantic-release/release-notes-generator",
+		"@semantic-release/changelog",
+		"@semantic-release/github",
+		"@semantic-release/npm",
+		"@semantic-release/git"
+	]
 }

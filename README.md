@@ -1,3 +1,5 @@
+**_SECCIÓN 12_**
+
 Esto proyecto fue creado de manera convencional con el comando
 npm create-react-app willapp --template= typescript
 
@@ -74,3 +76,34 @@ Listo! ahora, cada vez que queramos publicar en chromatic,
 -   actualizamo el build que está en la carpeta docs (npm run build)
 -   guardamos los cambios en git
 -   Corremos el comando npx chromatic --project-token=693a221d7821, ó, npm run chromatic
+
+**_SECCIÓN 13_**
+Para esta sección, hemos instalado typescript en npm de manera global. Para ello
+hay que abrir una consola como admistrador, y correr los siguientes comandos
+npm i -g typescript
+tsc --version
+
+Para compilar el código de typescript, usamos el siguiente comando en una consola abierta como administrador
+tsc
+Eso crea la carpeta dist
+
+para implementar el nuevo script de build, se tuvo que instalar 2 librerias
+npm i -D rimraf
+npm i -D copyfiles
+
+Después de instalar las 2 librerías anteriores, hemos creado un nuevo npm run build
+Este comando debe ser ejecutado en una terminal con permisos de administrador.
+Si quieres correr este comando en la terminal del vscode, entonces tienes que abrir el vscode como administrador
+
+Para el versionamiento automático, hemos instalado la siguiente librería
+npm i -D semantic-release
+
+con el semantic-release instalado, ahora github aumentará la versión de forma automática cuando hagamos un commit
+El aumento se definirá teniendo en cuenta el commit message, y por eso es importante comenzar a usar la siguiente nomeclatura
+
+fix: para corregir bugs
+feat: adicionar funcionalidades puntuales
+perf: quitar funcionalidades puntuales
+
+por ejemplo, después de instalar el semantic version, podemos hacer el siguiente commit
+git commit -M "feat: agregamos semantic version"
