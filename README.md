@@ -106,4 +106,14 @@ feat: adicionar funcionalidades puntuales
 perf: quitar funcionalidades puntuales
 
 por ejemplo, después de instalar el semantic version, podemos hacer el siguiente commit
-git commit -M "feat: agregamos semantic version"
+git commit -m "feat: agregamos semantic version"
+
+Para hacer el displiegue automático en git y el versionamiento semántico, generamos 2 tokens de acceso
+
+-   El 1er token fue generado en github, y tiene un expiración de 90 días apartir del 21/03/2022
+    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
+
+-   El 2do fue generado en la página de npm
+    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
+
+Ambos tokens fueron guardados en la sección de settings/secrets/action
