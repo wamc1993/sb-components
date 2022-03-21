@@ -70,5 +70,7 @@ siguiendo los siguientes pasos:
 -   Al ejecutar el comando anterior por primera vez, éste mismo comando se agrega al package.json
 
 Listo! ahora, cada vez que queramos publicar en chromatic,
-Corremos el comando npx chromatic --project-token=693a221d7821
-No es necesario guardar los cambios en github
+
+-   actualizamo el build que está en la carpeta docs (npm run build)
+-   guardamos los cambios en git
+-   Corremos el comando npx chromatic --project-token=693a221d7821, ó, npm run chromatic
